@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid Practice Pack - Assignment 08</title>
+  <style>
+    /* Reset & Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #f4f7f6;
+      color: #1a2e35;
+      padding: 24px;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    /* Top Page Header */
+    .top-header {
+      background: #ffffff;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    }
+
+    .top-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      color: #166963;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #112a30;
+      margin-bottom: 4px;
+    }
+
+    .top-subtitle {
+      font-size: 13px;
+      color: #52676d;
+    }
+
+    /* Section Card Wrapper */
+    .section-card {
+      background: #ffffff;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    }
+
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #166963;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    /* 01 / gallery.html */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .gallery-card {
+      background-color: #dfece6;
+      border: 1px solid #c6dcd3;
+      border-radius: 6px;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+    }
+
+    .gallery-card svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* 02 / product-grid.html */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+
+    .product-card {
+      background-color: #f7fbfa;
+      border: 1px solid #cfe0dc;
+      border-radius: 8px;
+      padding: 16px;
+    }
+
+    .product-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #112a30;
+      margin-bottom: 4px;
+    }
+
+    .product-card p {
+      font-size: 12px;
+      color: #3f585e;
+    }
+
+    .code-note {
+      margin-top: 16px;
+    }
+
+    .code-note h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #166963;
+      margin-bottom: 2px;
+    }
+
+    .code-note p {
+      font-size: 13px;
+      color: #2c3e42;
+    }
+
+    /* 03 / dashboard.html (Named Grid Areas) */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      grid-template-rows: auto 1fr auto;
+      grid-template-areas:
+        "header  header"
+        "sidebar main"
+        "footer  footer";
+      gap: 12px;
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 12px;
+    }
+
+    .dash-header {
+      grid-area: header;
+      background-color: #143d3d;
+      color: #ffffff;
+      padding: 12px 16px;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+    }
+
+    .dash-nav a {
+      color: #e0f0ee;
+      text-decoration: none;
+      margin-left: 14px;
+      font-size: 11px;
+    }
+
+    .dash-sidebar {
+      grid-area: sidebar;
+      background-color: #d8e6e2;
+      border: 1px solid #c2d6d0;
+      border-radius: 6px;
+      padding: 16px;
+    }
+
+    .dash-sidebar h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #112a30;
+      margin-bottom: 12px;
+    }
+
+    .dash-sidebar ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .dash-sidebar li {
+      font-size: 12.5px;
+      color: #233b40;
+    }
+
+    .dash-main {
+      grid-area: main;
+      background-color: #ffffff;
+      border: 1px solid #cfe0dc;
+      border-radius: 6px;
+      padding: 16px;
+    }
+
+    .dash-main h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #112a30;
+      margin-bottom: 12px;
+    }
+
+    .dash-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .dash-card {
+      background-color: #f7fbfa;
+      border: 1px solid #d5e5e1;
+      border-radius: 6px;
+      padding: 12px;
+    }
+
+    .dash-card h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #112a30;
+      margin-bottom: 2px;
+    }
+
+    .dash-card p {
+      font-size: 11.5px;
+      color: #4a6368;
+    }
+
+    .activity-text {
+      font-size: 12.5px;
+      color: #2c3e42;
+    }
+
+    .dash-footer {
+      grid-area: footer;
+      background-color: #143d3d;
+      color: #ffffff;
+      padding: 12px 16px;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+    }
+
+    /* Bottom Info Box */
+    .bottom-box {
+      background-color: #e3eff1;
+      border: 1px solid #cadce0;
+      border-radius: 8px;
+      padding: 14px 16px;
+      font-size: 12.5px;
+      color: #233b40;
+    }
+
+    .bottom-caption {
+      font-size: 11px;
+      color: #5c7075;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 650px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "header"
+          "sidebar"
+          "main"
+          "footer";
+      }
+      .dash-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Top Header -->
+    <header class="top-header">
+      <div class="top-eyebrow">BTECH YEAR 1 &nbsp;/&nbsp; HTML &amp; CSS &nbsp;/&nbsp; ASSIGNMENT 08</div>
+      <h1>Grid Practice Pack</h1>
+      <p class="top-subtitle">Weeks 7–9 &middot; Three separate page outputs &bull; Illustrative expected output</p>
+    </header>
+
+    <!-- 01 / gallery.html -->
+    <section class="section-card">
+      <div class="section-title">01 / gallery.html &middot; At least 9 images</div>
+      <div class="gallery-grid">
+        <div class="gallery-card">
+          <svg viewBox="0 0 300 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mountain landscape illustration 1">
+            <rect width="300" height="170" fill="#dfece6"/>
+            <circle cx="220" cy="42" r="18" fill="#fdf0c2"/>
+            <polygon points="0,170 105,52 215,170" fill="#779a90"/>
+            <polygon points="120,170 218,75 300,170" fill="#466963"/>
+          </svg>
+        </div>
+        <div class="gallery-card">
+          <svg viewBox="0 0 300 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mountain landscape illustration 2">
+            <rect width="300" height="170" fill="#dfece6"/>
+            <circle cx="220" cy="42" r="18" fill="#fdf0c2"/>
+            <polygon points="0,170 105,52 215,170" fill="#779a90"/>
+            <polygon points="120,170 218,75 300,170" fill="#466963"/>
+          </svg>
+        </div>
+        <div class="gallery-card">
+          <svg viewBox="0 0 300 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mountain landscape illustration 3">
+            <rect width="300" height="170" fill="#dfece6"/>
+            <circle cx="220" cy="42" r="18" fill="#fdf0c2"/>
+            <polygon points="0,170 105,52 215,170" fill="#779a90"/>
+            <polygon points="120,170 218,75 300,170" fill="#466963"/>
+          </svg>
+        </div>
+        <div class="gallery-card">
+          <svg viewBox="0 0 300 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mountain landscape illustration 4">
+            <rect width="300" height="170" fill="#dfece6"/>
+            <circle cx="220" cy="42" r="18" fill="#fdf0c2"/>
+            <polygon points="0,170 105,52 215,170" fill="#779a90"/>
+            <polygon points="120,170 218,75 300,170" fill="#466963"/>
+          </svg>
+        </div>
+        <div class="gallery-card">
+          <svg viewBox="0 0 300 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mountain landscape illustration 5">
+            <rect width="300" height="170" fill="#dfece6"/>
+            <circle cx="220" cy="42" r="18" fill="#fdf0c2"/>
+            <polygon points="0,170 105,52 215,170" fill="#779a90"/>
+            <polygon points="120,170 218,75 300,170" fill="#466963"/>
+          </svg>
+        </div>
+        <div class="gallery-card">
+          <svg viewBox="0 0 300 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mountain landscape illustration 6">
+            <rect width="300" height="170" fill="#dfece6"/>
+            <circle cx="220" cy="42" r="18" fill="#fdf0c2"/>
+            <polygon points="0,170 105,52 215,170" fill="#779a90"/>
+            <polygon points="120,170 218,75 300,170" fill="#466963"/>
+          </svg>
+        </div>
+        <div class="gallery-card">
+          <svg viewBox="0 0 300 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mountain landscape illustration 7">
+            <rect width="300" height="170" fill="#dfece6"/>
+            <circle cx="220" cy="42" r="18" fill="#fdf0c2"/>
+            <polygon points="0,170 105,52 215,170" fill="#779a90"/>
+            <polygon points="120,170 218,75 300,170" fill="#466963"/>
+          </svg>
+        </div>
+        <div class="gallery-card">
+          <svg viewBox="0 0 300 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mountain landscape illustration 8">
+            <rect width="300" height="170" fill="#dfece6"/>
+            <circle cx="220" cy="42" r="18" fill="#fdf0c2"/>
+            <polygon points="0,170 105,52 215,170" fill="#779a90"/>
+            <polygon points="120,170 218,75 300,170" fill="#466963"/>
+          </svg>
+        </div>
+        <div class="gallery-card">
+          <svg viewBox="0 0 300 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mountain landscape illustration 9">
+            <rect width="300" height="170" fill="#dfece6"/>
+            <circle cx="220" cy="42" r="18" fill="#fdf0c2"/>
+            <polygon points="0,170 105,52 215,170" fill="#779a90"/>
+            <polygon points="120,170 218,75 300,170" fill="#466963"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 / product-grid.html -->
+    <section class="section-card">
+      <div class="section-title">02 / product-grid.html &middot; Automatic column reflow</div>
+      <div class="product-grid">
+        <div class="product-card">
+          <h3>Product 1</h3>
+          <p>Campus essential &middot; ₹299</p>
+        </div>
+        <div class="product-card">
+          <h3>Product 2</h3>
+          <p>Campus essential &middot; ₹399</p>
+        </div>
+        <div class="product-card">
+          <h3>Product 3</h3>
+          <p>Campus essential &middot; ₹499</p>
+        </div>
+        <div class="product-card">
+          <h3>Product 4</h3>
+          <p>Campus essential &middot; ₹599</p>
+        </div>
+        <div class="product-card">
+          <h3>Product 5</h3>
+          <p>Campus essential &middot; ₹699</p>
+        </div>
+        <div class="product-card">
+          <h3>Product 6</h3>
+          <p>Campus essential &middot; ₹799</p>
+        </div>
+      </div>
+      <div class="code-note">
+        <h4>repeat(auto-fit, minmax(200px, 1fr))</h4>
+        <p>More room &rarr; more columns. Less room &rarr; fewer columns.</p>
+      </div>
+    </section>
+
+    <!-- 03 / dashboard.html -->
+    <section class="section-card">
+      <div class="section-title">03 / dashboard.html &middot; Named grid areas</div>
+      <div class="dashboard-grid">
+        <header class="dash-header">
+          <strong>HEADER / STUDENT DASHBOARD</strong>
+          <nav class="dash-nav">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+          </nav>
+        </header>
+
+        <aside class="dash-sidebar">
+          <h4>SIDEBAR</h4>
+          <ul>
+            <li>Overview</li>
+            <li>Courses</li>
+            <li>Assignments</li>
+            <li>Settings</li>
+          </ul>
+        </aside>
+
+        <main class="dash-main">
+          <h3>MAIN / Learning overview</h3>
+          <div class="dash-cards">
+            <div class="dash-card">
+              <h4>HTML</h4>
+              <p>8 lessons</p>
+            </div>
+            <div class="dash-card">
+              <h4>CSS</h4>
+              <p>12 lessons</p>
+            </div>
+            <div class="dash-card">
+              <h4>Projects</h4>
+              <p>3 active</p>
+            </div>
+          </div>
+          <p class="activity-text">Your learning activity appears here.</p>
+        </main>
+
+        <footer class="dash-footer">
+          <strong>FOOTER / CAMPUS LEARNING PORTAL</strong>
+          <nav class="dash-nav">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+          </nav>
+        </footer>
+      </div>
+    </section>
+
+    <!-- Bottom Instructions Note -->
+    <div class="bottom-box">
+      Use Grid columns, gap, fr units and named grid areas. The gallery uses landscape illustrations here; your gallery should use 9 images with meaningful alt text.
+    </div>
+    
+    <p class="bottom-caption">Sample content and design. Follow ASSIGNMENTS.md for code, Git and README requirements.</p>
+
+  </div>
+
+</body>
+</html>

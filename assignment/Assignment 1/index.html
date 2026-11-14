@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal portfolio of Shobhit Sharma, first-year BTech student learning web development and programming.">
+  <meta name="author" content="Shobhit Sharma">
+  <title>Shobhit Sharma | Personal Portfolio</title>
+
+  <!-- Internal CSS -->
+  <style>
+    /* Reset & Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: #1f2937;
+      background-color: #f3f4f6;
+    }
+
+    /* Header & Navigation */
+    header {
+      background-color: #1e293b;
+      color: #ffffff;
+      text-align: center;
+      padding: 2rem 1rem 2.5rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    nav a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      transition: color 0.2s, background-color 0.2s;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+      background-color: #334155;
+    }
+
+    header h1 {
+      font-size: 2.25rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      color: #94a3b8;
+      font-size: 1.05rem;
+    }
+
+    /* Main Content Container */
+    main {
+      max-width: 850px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    /* Section Cards */
+    .card {
+      background-color: #ffffff;
+      padding: 1.75rem;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      color: #0f172a;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      color: #334155;
+      margin: 1rem 0 0.5rem;
+    }
+
+    /* About Section Layout */
+    .about-layout {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .about-layout img {
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #e2e8f0;
+      flex-shrink: 0;
+    }
+
+    /* Lists & Badges */
+    ul, ol {
+      padding-left: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.35rem;
+    }
+
+    .skills-list {
+      list-style: none;
+      padding-left: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .skills-list li {
+      background-color: #e0f2fe;
+      color: #0369a1;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 0;
+    }
+
+    dl {
+      margin-top: 0.5rem;
+    }
+
+    dt {
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    dd {
+      margin-left: 1rem;
+      margin-bottom: 0.6rem;
+      color: #4b5563;
+    }
+
+    /* Projects Layout */
+    .project-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .project-item img {
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    /* Contact Links */
+    #contact p {
+      margin-bottom: 0.4rem;
+    }
+
+    #contact a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    #contact a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Adjustments for Mobile */
+    @media (max-width: 640px) {
+      .about-layout,
+      .project-item {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .project-item img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header id="home">
+    <nav aria-label="Primary Navigation">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#college">College</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <h1>Shobhit Sharma</h1>
+    <p class="subtitle">First-Year BTech Student &middot; Exploring Web Development and Programming</p>
+  </header>
+
+  <main>
+    <section id="about" class="card">
+      <h2>About Me</h2>
+      <div class="about-layout">
+        <img src="images/profile.jpg" alt="Portrait photo of Shobhit Sharma" width="150" height="150">
+        <p>
+          I am a first-year BTech student passionate about building clean, accessible web pages.
+          I enjoy breaking down logic problems and turning ideas into working code.
+        </p>
+      </div>
+    </section>
+
+    <section id="skills" class="card">
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        <li>Semantic HTML5</li>
+        <li>CSS3 &amp; Responsive Layouts</li>
+        <li>Git Version Control and GitHub</li>
+        <li>Python and C Programming Basics</li>
+        <li>Analytical Problem Solving</li>
+      </ul>
+    </section>
+
+    <section id="education" class="card">
+      <h2>Education</h2>
+      <ul>
+        <li><strong>BTech in Computer Science and Engineering</strong> &middot; 2026&ndash;2030</li>
+        <li><strong>Senior Secondary (Class XII, PCM Stream)</strong> &middot; 2026</li>
+      </ul>
+    </section>
+
+    <section id="college" class="card">
+      <h2>My College / My Course</h2>
+
+      <h3>Campus Activities</h3>
+      <ul>
+        <li>Open Source and Coding Society</li>
+        <li>University Innovation and Coding Lab</li>
+      </ul>
+
+      <h3>My Semester Learning Sequence</h3>
+      <ol>
+        <li>Document structure and semantic HTML</li>
+        <li>Page layout and styling with CSS</li>
+        <li>Interactive web features with JavaScript</li>
+      </ol>
+
+      <h3>Core Web Terms</h3>
+      <dl>
+        <dt>Semantic HTML</dt>
+        <dd>HTML tags that clearly describe their meaning and role to both browsers and developers.</dd>
+        <dt>Version Control</dt>
+        <dd>A system like Git that tracks changes to source code over time.</dd>
+      </dl>
+    </section>
+
+    <section id="projects" class="card">git
+      <h2>Projects</h2>
+      <article class="project-item">
+        <div>
+          <h3>Personal Study Tracker</h3>
+          <p>
+            A structured multi-section HTML page created to organize daily lecture notes, assignments, and exam schedules using lists and anchor links.
+          </p>
+        </div>
+        <img src="images/study-tracker-preview.png" alt="Screenshot of the Personal Study Tracker web page showing weekly subject goals" width="260" height="160">
+      </article>
+    </section>
+
+    <section id="contact" class="card">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:shobhitbly999@gmail.com">shobhitbly999@gmail.com</a></p>
+      <p>Phone: <a href="tel:+918395024805">+91 8395024805</a></p>
+      <p>GitHub: <a href="https://github.com/shobhitbly999-design" target="_blank" rel="noopener">github.com/shobhitbly999-design</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>copy; 2026 Shobhit Sharma. Built with HTML amp; CSS.</p>
+  </footer>
+
+</body>
+</html>

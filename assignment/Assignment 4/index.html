@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal portfolio of Shobhit Sharma, First-year BTech student.">
+  <meta name="author" content="Shobhit Sharma">
+  <title>Shobhit Sharma | Portfolio</title>
+
+  <!-- Google Fonts Pairing -->
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Inter:wght@400;500&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+
+  <!-- Internal CSS -->
+  <style>
+    /* Design Tokens */
+    :root {
+      /* Colour Palette (4 intentional colours) */
+      --color-bg-page: #f4f7f8;
+      --color-bg-hero: #e1ece7;
+      --color-brand-dark: #13393e;
+      --color-brand-accent: #1d6363;
+      --color-text-main: #1a2629;
+      --color-text-muted: #4b5d62;
+      --color-surface: #ffffff;
+      --color-border: #d0dde0;
+
+      /* Typography */
+      --font-heading: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --fs-base: 1rem;
+      --fs-sm: 0.875rem;
+      --fs-h1: 2.5rem;
+      --fs-h2: 1.35rem;
+      --fs-h3: 1.1rem;
+
+      /* Spacing & Layout */
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 2.5rem;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+    }
+
+    /* 1. Element Selectors */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: var(--fs-base);
+      line-height: 1.6;
+      color: var(--color-text-main);
+      background-color: var(--color-bg-page);
+    }
+
+    h1, h2, h3 {
+      font-family: var(--font-heading);
+      color: var(--color-brand-dark);
+      line-height: 1.25;
+    }
+
+    h1 {
+      font-size: var(--fs-h1);
+      margin-bottom: var(--space-sm);
+    }
+
+    h2 {
+      font-size: var(--fs-h2);
+      margin-bottom: var(--space-xs);
+    }
+
+    h3 {
+      font-size: var(--fs-h3);
+      margin-bottom: 0.25rem;
+    }
+
+    a {
+      color: var(--color-brand-accent);
+      text-decoration: none;
+    }
+
+    /* 2. Class Selectors */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+    }
+
+    .site-header,
+    .site-footer {
+      background-color: var(--color-brand-dark);
+      color: var(--color-surface);
+      padding: var(--space-sm) 0;
+    }
+
+    .nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .brand {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: var(--fs-sm);
+      letter-spacing: 0.05em;
+      color: var(--color-surface);
+    }
+
+    .hero-card {
+      background-color: var(--color-bg-hero);
+      border: 1px solid #c8dcd4;
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      margin: var(--space-lg) 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-lg);
+    }
+
+    .eyebrow {
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--color-brand-accent);
+      margin-bottom: var(--space-xs);
+    }
+
+    .hero-subtitle {
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-md);
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background-color: var(--color-brand-accent);
+      color: var(--color-surface);
+      padding: 0.65rem 1.25rem;
+      border-radius: var(--radius-sm);
+      font-size: var(--fs-sm);
+      font-weight: 500;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .content-section {
+      margin-bottom: var(--space-lg);
+    }
+
+    /* 3. Descendant & Child Selectors */
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: var(--space-md);
+    }
+
+    .nav-links li a {
+      color: #dce7e9;
+      font-size: var(--fs-sm);
+      transition: color 0.2s ease;
+    }
+
+    .hero-image img {
+      width: 160px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+      background-color: #d2e2dc;
+      border: 1px solid #bdd2ca;
+      display: block;
+    }
+
+    .inline-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+      margin-top: var(--space-xs);
+    }
+
+    .inline-list > li::after {
+      content: "•";
+      margin-left: var(--space-xs);
+      color: var(--color-text-muted);
+    }
+
+    .inline-list > li:last-child::after {
+      content: "";
+    }
+
+    .ordered-inline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      padding-left: 1.2rem;
+      margin-top: var(--space-xs);
+    }
+
+    .term-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      margin-top: var(--space-xs);
+    }
+
+    .term-item {
+      display: flex;
+      gap: 0.35rem;
+    }
+
+    .term-item dt {
+      font-weight: 600;
+    }
+
+    .term-item dd::before {
+      content: "— ";
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-md);
+      margin-top: var(--space-sm);
+    }
+
+    .project-card {
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: var(--space-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project-thumb img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+      background-color: var(--color-bg-hero);
+      margin-bottom: var(--space-sm);
+      display: block;
+    }
+
+    .project-info p {
+      font-size: var(--fs-sm);
+      color: var(--color-text-muted);
+    }
+
+    /* 4. ID Selector */
+    #contact a {
+      font-weight: 500;
+      text-decoration: underline;
+    }
+
+    /* 5. Pseudo-class Selectors (:hover) */
+    .nav-links li a:hover {
+      color: var(--color-surface);
+      text-decoration: underline;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--color-brand-dark);
+      transform: translateY(-1px);
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(19, 57, 62, 0.08);
+    }
+
+    #contact a:hover {
+      color: var(--color-brand-dark);
+    }
+
+    .site-footer {
+      margin-top: var(--space-lg);
+      font-size: var(--fs-sm);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="#" class="brand">SHOBHIT / PORTFOLIO</a>
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero Section -->
+    <section id="home" class="hero-card">
+      <div class="hero-text">
+        <p class="eyebrow">HELLO, I'M SHOBHIT</p>
+        <h1>Curious mind.<br>Future web developer.</h1>
+        <p class="hero-subtitle">First-year BTech student building useful web pages.</p>
+        <a href="#projects" class="btn-primary">View projects</a>
+      </div>
+      <div class="hero-image">
+        <!-- Replace src with your actual photo filename -->
+        <img src="profile.jpg" alt="Portrait photo of Shobhit Sharma">
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="content-section">
+      <h2>About me</h2>
+      <p>I enjoy learning how the web works and building clear, accessible pages.</p>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="content-section">
+      <h2>Skills</h2>
+      <ul class="inline-list">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>Git &amp; GitHub</li>
+        <li>Problem solving</li>
+      </ul>
+    </section>
+
+    <!-- Education & College Section -->
+    <section id="education" class="content-section">
+      <h2>Education &amp; My College / My Course</h2>
+      <p>BTech, Computer Science &bull; 2026–2030 (Invertis University)</p>
+      
+      <ul class="inline-list">
+        <li>Web Development Club</li>
+        <li>Library and coding lab</li>
+      </ul>
+
+      <ol class="ordered-inline">
+        <li>HTML structure</li>
+        <li>CSS foundations</li>
+        <li>Responsive layouts</li>
+      </ol>
+
+      <dl class="term-list">
+        <div class="term-item">
+          <dt>HTML</dt>
+          <dd>Page structure</dd>
+        </div>
+        <div class="term-item">
+          <dt>CSS</dt>
+          <dd>Page presentation</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="content-section">
+      <h2>Selected projects</h2>
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-thumb">
+            <!-- Replace src with a screenshot of your first project -->
+            <img src="project1.png" alt="Preview of My First Web Page project">
+          </div>
+          <div class="project-info">
+            <h3>My First Web Page</h3>
+            <p>Semantic HTML and internal navigation.</p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-thumb">
+            <!-- Replace src with a screenshot of your table project -->
+            <img src="project2.png" alt="Preview of Student Marks Table project">
+          </div>
+          <div class="project-info">
+            <h3>Student Marks Table</h3>
+            <p>A readable table with grouped headings.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+

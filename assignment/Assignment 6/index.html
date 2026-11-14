@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flexbox Practice Pack</title>
+  <!-- Internal CSS Start -->
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #f3f7f7;
+      color: #1e293b;
+      padding: 36px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page-wrapper {
+      width: 100%;
+      max-width: 960px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    /* Header Section */
+    .assignment-header {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #185d63;
+      letter-spacing: 0.5px;
+    }
+
+    .assignment-header h1 {
+      font-size: 1.8rem;
+      color: #0f172a;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: #64748b;
+    }
+
+    /* Section Titles */
+    .section-block {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .section-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #185d63;
+    }
+
+    .preview-box {
+      background-color: #ffffff;
+      border: 1px solid #dce5e5;
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    /* 01 / menu.html */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #184b50;
+      color: #ffffff;
+      padding: 14px 24px;
+      border-radius: 6px;
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #e2e8f0;
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+
+    .caption {
+      font-size: 0.85rem;
+      color: #64748b;
+      padding-left: 4px;
+    }
+
+    /* 02 / login.html */
+    .login-area {
+      background-color: #e4f1ef;
+      min-height: 360px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+    }
+
+    .login-card {
+      background-color: #ffffff;
+      width: 100%;
+      max-width: 340px;
+      padding: 28px 24px;
+      border-radius: 10px;
+      border: 1px solid #d5e5e3;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .login-card h2 {
+      font-size: 1.25rem;
+      color: #0f172a;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #334155;
+    }
+
+    .form-group input {
+      padding: 9px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 0.85rem;
+    }
+
+    .btn-primary {
+      align-self: flex-start;
+      background-color: #185d63;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 9px 20px;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    /* 03 / products.html */
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .product-card {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 10px;
+      flex-grow: 1;
+      flex-basis: 190px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .thumb {
+      width: 100%;
+      height: 95px;
+      border-radius: 4px;
+      overflow: hidden;
+      background-color: #dcebe8;
+    }
+
+    .thumb svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .product-card h3 {
+      font-size: 0.9rem;
+      color: #0f172a;
+    }
+
+    .product-card p {
+      font-size: 0.8rem;
+      color: #64748b;
+    }
+
+    /* 04 / navbar-hero.html */
+    .hero-wrapper {
+      display: flex;
+      flex-direction: column;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .hero-wrapper .navbar {
+      border-radius: 0;
+    }
+
+    .hero-banner {
+      background-color: #e4f1ef;
+      min-height: 240px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 36px 20px;
+      gap: 12px;
+    }
+
+    .hero-banner h2 {
+      font-size: 1.55rem;
+      color: #0f172a;
+    }
+
+    .hero-banner p {
+      font-size: 0.9rem;
+      color: #475569;
+    }
+
+    .hero-banner .btn-primary {
+      align-self: center;
+      margin-top: 6px;
+      padding: 10px 26px;
+    }
+
+    /* Footer Instructions */
+    .footer-note {
+      background-color: #ffffff;
+      border: 1px solid #dce5e5;
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-size: 0.85rem;
+      color: #334155;
+    }
+  </style>
+  <!-- Internal CSS End -->
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- Top Header -->
+    <header class="assignment-header">
+      <span class="tag">BTECH YEAR 1 / HTML &amp; CSS / ASSIGNMENT 07</span>
+      <h1>Flexbox Practice Pack</h1>
+      <p class="subtitle">Weeks 7-9 · Four separate page outputs · Illustrative expected output</p>
+    </header>
+
+    <!-- 01 / menu.html -->
+    <section class="section-block">
+      <div class="section-label">01 / menu.html</div>
+      <div class="preview-box">
+        <nav class="navbar">
+          <div class="brand">CAMPUS MENU</div>
+          <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+        <p class="caption">Horizontal links with consistent spacing.</p>
+      </div>
+    </section>
+
+    <!-- 02 / login.html -->
+    <section class="section-block">
+      <div class="section-label">02 / login.html</div>
+      <div class="preview-box">
+        <div class="login-area">
+          <form class="login-card">
+            <h2>Welcome back</h2>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" placeholder="you@example.com" />
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" placeholder="••••••••" />
+            </div>
+            <button type="submit" class="btn-primary">Log in</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 / products.html -->
+    <section class="section-block">
+      <div class="section-label">03 / products.html · At least 8 wrapping items</div>
+      <div class="preview-box">
+        <div class="product-grid">
+          <div class="product-card">
+            <div class="thumb">
+              <svg viewBox="0 0 240 110" preserveAspectRatio="none">
+                <rect width="240" height="110" fill="#dcebe8" />
+                <circle cx="170" cy="34" r="14" fill="#f7e5b2" />
+                <polygon points="0,110 75,38 155,110" fill="#4f7476" />
+                <polygon points="95,110 165,48 240,110" fill="#2c5356" />
+              </svg>
+            </div>
+            <h3>Product 01</h3>
+            <p>₹199</p>
+          </div>
+
+          <div class="product-card">
+            <div class="thumb">
+              <svg viewBox="0 0 240 110" preserveAspectRatio="none">
+                <rect width="240" height="110" fill="#dcebe8" />
+                <circle cx="170" cy="34" r="14" fill="#f7e5b2" />
+                <polygon points="0,110 75,38 155,110" fill="#4f7476" />
+                <polygon points="95,110 165,48 240,110" fill="#2c5356" />
+              </svg>
+            </div>
+            <h3>Product 02</h3>
+            <p>₹249</p>
+          </div>
+
+          <div class="product-card">
+            <div class="thumb">
+              <svg viewBox="0 0 240 110" preserveAspectRatio="none">
+                <rect width="240" height="110" fill="#dcebe8" />
+                <circle cx="170" cy="34" r="14" fill="#f7e5b2" />
+                <polygon points="0,110 75,38 155,110" fill="#4f7476" />
+                <polygon points="95,110 165,48 240,110" fill="#2c5356" />
+              </svg>
+            </div>
+            <h3>Product 03</h3>
+            <p>₹299</p>
+          </div>
+
+          <div class="product-card">
+            <div class="thumb">
+              <svg viewBox="0 0 240 110" preserveAspectRatio="none">
+                <rect width="240" height="110" fill="#dcebe8" />
+                <circle cx="170" cy="34" r="14" fill="#f7e5b2" />
+                <polygon points="0,110 75,38 155,110" fill="#4f7476" />
+                <polygon points="95,110 165,48 240,110" fill="#2c5356" />
+              </svg>
+            </div>
+            <h3>Product 04</h3>
+            <p>₹349</p>
+          </div>
+
+          <div class="product-card">
+            <div class="thumb">
+              <svg viewBox="0 0 240 110" preserveAspectRatio="none">
+                <rect width="240" height="110" fill="#dcebe8" />
+                <circle cx="170" cy="34" r="14" fill="#f7e5b2" />
+                <polygon points="0,110 75,38 155,110" fill="#4f7476" />
+                <polygon points="95,110 165,48 240,110" fill="#2c5356" />
+              </svg>
+            </div>
+            <h3>Product 05</h3>
+            <p>₹399</p>
+          </div>
+
+          <div class="product-card">
+            <div class="thumb">
+              <svg viewBox="0 0 240 110" preserveAspectRatio="none">
+                <rect width="240" height="110" fill="#dcebe8" />
+                <circle cx="170" cy="34" r="14" fill="#f7e5b2" />
+                <polygon points="0,110 75,38 155,110" fill="#4f7476" />
+                <polygon points="95,110 165,48 240,110" fill="#2c5356" />
+              </svg>

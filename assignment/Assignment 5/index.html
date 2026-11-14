@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaf &amp; Bean — Neighbourhood Café</title>
+  <style>
+    /* Global Reset & Box Model Setup */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: #1f2933;
+      background-color: #ffffff;
+      line-height: 1.5;
+    }
+
+    /* Navbar (Normal Flow + Absolute Positioning, No Flexbox/Grid) */
+    .navbar {
+      position: relative;
+      background-color: #1a382c;
+      color: #ffffff;
+      padding: 18px 36px;
+      border-bottom: 1px solid #2b5443;
+    }
+
+    .nav-brand {
+      display: inline-block;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.8px;
+    }
+
+    .nav-links {
+      position: absolute;
+      right: 36px;
+      top: 18px;
+    }
+
+    .nav-links a {
+      color: #e2ece7;
+      text-decoration: none;
+      font-size: 13px;
+      margin-left: 18px;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Hero Section with Positioned Overlay and z-index */
+    .hero {
+      position: relative;
+      background-color: #265341;
+      background-image: linear-gradient(135deg, #2b5e4a 0%, #1d4233 100%);
+      color: #ffffff;
+      padding: 48px 36px 44px;
+      overflow: hidden;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(15, 35, 27, 0.25);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-tag {
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #b7d1c5;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+
+    .hero-subtext {
+      font-size: 14px;
+      color: #d6e6de;
+      margin-bottom: 24px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background-color: #246a73;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 26px;
+      border-radius: 4px;
+    }
+
+    .btn-primary:hover {
+      background-color: #1c555c;
+    }
+
+    /* Main Content Container */
+    .container {
+      padding: 36px 36px 56px;
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #182226;
+      margin-bottom: 18px;
+    }
+
+    /* 3 Card Variants using inline-block (No Flexbox/Grid) */
+    .favourites-section {
+      margin-bottom: 34px;
+    }
+
+    .cards-wrapper {
+      font-size: 0; /* Removes whitespace gap between inline-block cards */
+    }
+
+    .card {
+      display: inline-block;
+      vertical-align: top;
+      width: 31.33%;
+      min-height: 145px;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    .card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #182226;
+    }
+
+    .card p {
+      font-size: 13px;
+      color: #4a5568;
+    }
+
+    /* Card 1: Soft grey background + rounded border */
+    .card-brews {
+      background-color: #f3f5f6;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      margin-right: 3%;
+    }
+
+    /* Card 2: White background + gold border + subtle shadow */
+    .card-bites {
+      background-color: #ffffff;
+      border: 2px solid #d4a359;
+      border-radius: 6px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+      margin-right: 3%;
+    }
+
+    /* Card 3: Tinted mint background + dark green border + sharp corners */
+    .card-study {
+      background-color: #f4f7f6;
+      border: 2px solid #265341;
+      border-radius: 2px;
+      box-shadow: 3px 3px 0px #dbe4df;
+    }
+
+    /* Gallery & Testimonial Section with overflow */
+    .gallery-section {
+      margin-bottom: 38px;
+    }
+
+    .banner-box {
+      width: 100%;
+      height: 150px;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid #d5dfda;
+      margin-bottom: 16px;
+    }
+
+    .banner-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .quote {
+      font-style: italic;
+      font-size: 14px;
+      color: #2d3748;
+      margin-bottom: 18px;
+    }
+
+    .address {
+      font-size: 13px;
+      color: #4a5568;
+    }
+
+    /* Contact Form Section */
+    .contact-section h2 {
+      margin-left: 8px;
+    }
+
+    .contact-form {
+      padding: 0 8px;
+    }
+
+    .contact-form label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #2d3748;
+      margin-bottom: 6px;
+    }
+
+    .contact-form input {
+      display: block;
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 16px;
+      font-size: 13px;
+      color: #2d3748;
+      background-color: #ffffff;
+      border: 1px solid #cbd5e0;
+      border-radius: 3px;
+    }
+
+    .contact-form input:focus {
+      outline: none;
+      border-color: #246a73;
+    }
+
+    .btn-submit {
+      background-color: #206a73;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      padding: 11px 28px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 4px;
+    }
+
+    .btn-submit:hover {
+      background-color: #185259;
+    }
+
+    /* Footer */
+    .footer {
+      position: relative;
+      background-color: #1a382c;
+      color: #ffffff;
+      padding: 20px 36px;
+      font-size: 13px;
+    }
+
+    .footer-copy {
+      display: inline-block;
+      font-weight: 600;
+    }
+
+    .footer-links {
+      position: absolute;
+      right: 36px;
+      top: 20px;
+    }
+
+    .footer-links a {
+      color: #e2ece7;
+      text-decoration: none;
+      margin-left: 18px;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-brand">LEAF &amp; BEAN</div>
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section with Positioned Overlay -->
+  <section id="home" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-tag">YOUR NEIGHBOURHOOD CAFÉ</p>
+      <h1>Good coffee.<br>A little room to pause.</h1>
+      <p class="hero-subtext">Fresh brews and warm bites.</p>
+      <a href="#contact" class="btn-primary">Visit us</a>
+    </div>
+  </section>
+
+  <!-- Main Content Container -->
+  <main class="container">
+
+    <!-- Services / About Section: 3 Card Variants -->
+    <section id="services" class="favourites-section">
+      <h2>Our favourites</h2>
+
+      <div class="cards-wrapper">
+        <!-- Card Variant 1: Soft Fill & Rounded Corners -->
+        <div class="card card-brews">
+          <h3>Fresh brews</h3>
+          <p>Coffee, made your way.</p>
+        </div>
+
+        <!-- Card Variant 2: Warm Gold Border & Shadow -->
+        <div class="card card-bites">
+          <h3>Warm bites</h3>
+          <p>Sandwiches and treats.</p>
+        </div>
+
+        <!-- Card Variant 3: Dark Green Border & Sharp Corners -->
+        <div class="card card-study">
+          <h3>Study corner</h3>
+          <p>Space for your ideas.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery & Testimonial Section -->
+    <section id="about" class="gallery-section">
+      <div class="banner-box">
+        <img 
+          src="data:image/svg+xml;utf8,<svg xmlns='http://w3.org' viewBox='0 0 900 180'><rect width='900' height='180' fill='%23dbe4df'/><ellipse cx='670' cy='58' rx='56' ry='18' fill='%23f6e4b8'/><polygon points='0,180 310,65 650,180' fill='%236c8b7b'/><polygon points='280,180 650,82 900,180' fill='%23234739'/></svg>" 
+          alt="Minimalist hills and sun illustration"
+          class="banner-img"
+        >
+      </div>
+      <blockquote class="quote">“A lovely place for a study break.”</blockquote>
+      <p class="address">12 College Road, Bareilly</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <h2>Come say hello</h2>
+      <form class="contact-form" action="#" method="post">
+        <label for="name">Your name</label>
+        <input type="text" id="name" name="name" placeholder="Riya Sharma" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="riya@example.com" required>
+
+        <label for="message">Message</label>
+        <input type="text" id="message" name="message" placeholder="I would like to ask about your study corner." required>
+
+        <button type="submit" class="btn-submit">Send message</button>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-copy">&copy; 2026 LEAF &amp; BEAN</div>
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </footer>
+
+</body>
+</html>

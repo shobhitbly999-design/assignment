@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Big Styled Table - Campus Store</title>
+  
+  <!-- INTERNAL CSS STARTS HERE -->
+  <style>
+    /* CSS Variables defined in :root */
+    :root {
+      --bg-page: #f4f6f8;
+      --bg-surface: #ffffff;
+      --bg-header: #1d2d3d;
+      --bg-subheader: #2c4156;
+      --bg-brand: #eaf0f4;
+      --bg-stripe: #f8fafc;
+      --bg-hover: #e2ecf5;
+      
+      --text-primary: #1e293b;
+      --text-secondary: #64748b;
+      --text-light: #ffffff;
+      --text-accent: #0f766e;
+      
+      --border-color: #cbd5e1;
+      --border-header: #3b536b;
+      
+      --space-xs: 6px;
+      --space-sm: 10px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-xs: 0.75rem;
+      --font-sm: 0.875rem;
+      --font-base: 1rem;
+      --font-lg: 1.25rem;
+      --font-xl: 1.75rem;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--bg-page);
+      color: var(--text-primary);
+      padding: var(--space-lg);
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .breadcrumb {
+      font-size: var(--font-xs);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--text-accent);
+      text-transform: uppercase;
+      margin-bottom: var(--space-xs);
+    }
+
+    .breadcrumb span {
+      color: var(--text-secondary);
+    }
+
+    h1 {
+      font-size: var(--font-xl);
+      font-weight: 800;
+      color: var(--bg-header);
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      font-size: var(--font-sm);
+      color: var(--text-secondary);
+      margin-bottom: var(--space-lg);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: var(--bg-surface);
+      font-size: var(--font-sm);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    caption {
+      caption-side: top;
+      text-align: left;
+      font-size: var(--font-lg);
+      font-weight: 700;
+      color: var(--bg-header);
+      margin-bottom: var(--space-sm);
+    }
+
+    th, td {
+      padding: var(--space-sm) var(--space-md);
+      border: 1px solid var(--border-color);
+      text-align: left;
+    }
+
+    thead th {
+      background-color: var(--bg-header);
+      color: var(--text-light);
+      font-weight: 600;
+      border-color: var(--border-header);
+    }
+
+    thead tr:nth-child(2) th {
+      background-color: var(--bg-subheader);
+      font-size: var(--font-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    th[scope="rowgroup"] {
+      background-color: var(--bg-brand);
+      color: var(--bg-header);
+      font-weight: 700;
+      vertical-align: middle;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: var(--bg-stripe);
+    }
+
+    tbody tr:hover {
+      background-color: var(--bg-hover);
+      transition: background-color 0.15s ease-in-out;
+    }
+
+    tfoot td, tfoot th {
+      background-color: var(--bg-header);
+      color: var(--text-light);
+      font-weight: 700;
+      border-color: var(--border-header);
+    }
+
+    .note-box {
+      margin-top: var(--space-lg);
+      padding: var(--space-md);
+      background-color: var(--bg-brand);
+      border-left: 4px solid var(--text-accent);
+      font-size: var(--font-sm);
+      color: var(--text-primary);
+    }
+  </style>
+  <!-- INTERNAL CSS ENDS HERE -->
+</head>
+<body>
+
+  <div class="container">
+    <p class="breadcrumb">BTECH YEAR 1 <span>/</span> HTML &amp; CSS <span>/</span> ASSIGNMENT 04</p>
+    <h1>The Big Styled Table</h1>
+    <p class="subtitle">Week 4 &bull; 20 data rows &times; 10 columns &bull; Illustrative expected output</p>
+
+    <table>
+      <caption>Campus Store &middot; T-Shirt Size &amp; Stock Chart</caption>
+      
+      <thead>
+        <tr>
+          <th scope="col" rowspan="2">Brand</th>
+          <th scope="col" rowspan="2">SKU</th>
+          <th scope="col" rowspan="2">Size</th>
+          <th scope="colgroup" colspan="4">Measurements (inches)</th>
+          <th scope="col" rowspan="2">Colour</th>
+          <th scope="col" rowspan="2">Stock</th>
+          <th scope="col" rowspan="2">Price</th>
+        </tr>
+        <tr>
+          <th scope="col">Chest</th>
+          <th scope="col">Waist</th>
+          <th scope="col">Length</th>
+          <th scope="col">Sleeve</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <th scope="rowgroup" rowspan="10">Campus</th>
+          <td>TS-01</td>
+          <td>S</td>
+          <td>36</td>
+          <td>30</td>
+          <td>26</td>
+          <td>16</td>
+          <td>Navy</td>
+          <td>12</td>
+          <td>&#8377;499</td>
+        </tr>
+        <tr>
+          <td>TS-02</td>
+          <td>M</td>
+          <td>38</td>
+          <td>32</td>
+          <td>27</td>
+          <td>17</td>
+          <td>White</td>
+          <td>13</td>
+          <td>&#8377;519</td>
+        </tr>
+        <tr>
+          <td>TS-03</td>
+          <td>L</td>
+          <td>40</td>
+          <td>34</td>
+          <td>28</td>
+          <td>18</td>
+          <td>Olive</td>
+          <td>14</td>
+          <td>&#8377;539</td>
+        </tr>
+        <tr>
+          <td>TS-04</td>
+          <td>XL</td>
+          <td>42</td>
+          <td>36</td>
+          <td>29</td>
+          <td>16</td>
+          <td>Black</td>
+          <td>15</td>
+          <td>&#8377;559</td>
+        </tr>
+        <tr>
+          <td>TS-05</td>
+          <td>S</td>
+          <td>36</td>
+          <td>30</td>
+          <td>26</td>
+          <td>17</td>
+          <td>Navy</td>
+          <td>16</td>
+          <td>&#8377;579</td>
+        </tr>
+        <tr>
+          <td>TS-06</td>
+          <td>M</td>
+          <td>38</td>
+          <td>32</td>
+          <td>27</td>
+          <td>18</td>
+          <td>White</td>
+          <td>17</td>
+          <td>&#8377;599</td>
+        </tr>
+        <tr>
+          <td>TS-07</td>
+          <td>L</td>
+          <td>40</td>
+          <td>34</td>
+          <td>28</td>
+          <td>16</td>
+          <td>Olive</td>
+          <td>18</td>
+          <td>&#8377;619</td>
+        </tr>
+        <tr>
+          <td>TS-08</td>
+          <td>XL</td>
+          <td>42</td>
+          <td>36</td>
+          <td>29</td>
+          <td>17</td>
+          <td>Black</td>
+          <td>19</td>
+          <td>&#8377;639</td>
+        </tr>
+        <tr>
+          <td>TS-09</td>
+          <td>S</td>
+          <td>36</td>
+          <td>30</td>
+          <td>26</td>
+          <td>18</td>
+          <td>Navy</td>
+          <td>20</td>
+          <td>&#8377;659</td>
+        </tr>
+        <tr>
+          <td>TS-10</td>
+          <td>M</td>
+          <td>38</td>
+          <td>32</td>
+          <td>27</td>
+          <td>16</td>
+          <td>White</td>
+          <td>21</td>
+          <td>&#8377;679</td>
+        </tr>
+
+        <tr>
+          <th scope="rowgroup" rowspan="10">Everyday</th>
+          <td>TS-11</td>
+          <td>L</td>
+          <td>40</td>
+          <td>34</td>
+          <td>28</td>
+          <td>17</td>
+          <td>Olive</td>
+          <td>22</td>
+          <td>&#8377;699</td>
+        </tr>
+        <tr>
+          <td>TS-12</td>
+          <td>XL</td>
+          <td>42</td>
+          <td>36</td>
+          <td>29</td>
+          <td>18</td>
+          <td>Black</td>
+          <td>23</td>
+          <td>&#8377;719</td>
+        </tr>
+        <tr>
+          <td>TS-13</td>
+          <td>S</td>
+          <td>36</td>
+          <td>30</td>
+          <td>26</td>
+          <td>16</td>
+          <td>Navy</td>
+          <td>24</td>
+          <td>&#8377;739</td>
+        </tr>
+        <tr>
+          <td>TS-14</td>
+          <td>M</td>
+          <td>38</td>
+          <td>32</td>
+          <td>27</td>
+          <td>17</td>
+          <td>White</td>
+          <td>25</td>
+          <td>&#8377;759</td>
+        </tr>
+        <tr>
+          <td>TS-15</td>
+          <td>L</td>
+          <td>40</td>
+          <td>34</td>
+          <td>28</td>
+          <td>18</td>
+          <td>Olive</td>
+          <td>26</td>
+          <td>&#8377;779</td>
+        </tr>
+        <tr>
+          <td>TS-16</td>
+          <td>XL</td>
+          <td>42</td>
+          <td>36</td>
+          <td>29</td>
+          <td>16</td>
+          <td>Black</td>
+          <td>27</td>
+          <td>&#8377;799</td>
+        </tr>
+        <tr>
+          <td>TS-17</td>
+          <td>S</td>
+          <td>36</td>
+          <td>30</td>
+          <td>26</td>
+          <td>17</td>
+          <td>Navy</td>
+          <td>28</td>
+          <td>&#8377;819</td>
+        </tr>
+        <tr>
+          <td>TS-18</td>
+          <td>M</td>
+          <td>38</td>
+          <td>32</td>
+          <td>27</td>
+          <td>18</td>
+          <td>White</td>
+          <td>29</td>
+          <td>&#8377;839</td>
+        </tr>
+        <tr>
+          <td>TS-19</td>
+          <td>L</td>
+          <td>40</td>
+          <td>34</td>
+          <td>28</td>
+          <td>16</td>
+          <td>Olive</td>
+          <td>30</td>
+          <td>&#8377;859</td>
+        </tr>
+        <tr>
+          <td>TS-20</td>
+          <td>XL</td>
+          <td>42</td>
+          <td>36</td>
+          <td>29</td>
+          <td>17</td>
+          <td>Black</td>
+          <td>31</td>
+          <td>&#8377;879</td>
+        </tr>
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <th scope="row" colspan="8">Total stock &middot; 20 variants</th>
+          <td>430</td>
+          <td>INR</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <div class="note-box">
+      Header and footer show colspan; each brand cell spans 10 rows. Use caption, thead/tbody/tfoot, scoped headers, 5+ CSS variables, striped rows and a hover highlight.
+    </div>
+  </div>
+
+</body>
+</html>
