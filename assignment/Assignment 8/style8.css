@@ -1,0 +1,1109 @@
+/* =====================================
+   GOOGLE FONTS
+===================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500&');
+
+
+/* =====================================
+   ROOT VARIABLES
+===================================== */
+
+:root {
+
+    --bg: #edf3f6;
+
+    --primary: #173f43;
+
+    --secondary: #187579;
+
+    --green: #285d4d;
+
+    --light-green: #dcebe2;
+
+    --white: #ffffff;
+
+    --text: #203e54;
+
+    --muted: #61798c;
+
+    --border: #cbd9e2;
+
+    --accent: #e3b34c;
+
+    --heading-font: "Poppins", sans-serif;
+
+    --body-font: "Roboto", sans-serif;
+
+    --space-small: 10px;
+
+    --space-medium: 20px;
+
+    --space-large: 35px;
+
+}
+
+
+/* =====================================
+   RESET
+===================================== */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =====================================
+   BODY
+===================================== */
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    background-color: var(--bg);
+
+    color: var(--text);
+
+    font-family: var(--body-font);
+
+    line-height: 1.6;
+
+    overflow-x: hidden;
+
+}
+
+
+/* =====================================
+   NAVBAR
+===================================== */
+
+.navbar {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 20px;
+
+    padding: 18px 5%;
+
+    background-color: var(--primary);
+
+    color: var(--white);
+
+}
+
+
+.logo {
+
+    font-family: var(--heading-font);
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+}
+
+
+/* Navigation */
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 25px;
+
+}
+
+
+.nav-links a {
+
+    color: var(--white);
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition: color 0.3s ease;
+
+}
+
+
+.nav-links a:hover {
+
+    color: var(--accent);
+
+}
+
+
+/* =====================================
+   HERO SECTION
+===================================== */
+
+.hero {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    min-height: 350px;
+
+    padding: 45px 5%;
+
+    background-color: var(--green);
+
+    color: var(--white);
+
+    overflow: hidden;
+
+}
+
+
+/* Hero Overlay */
+
+.hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: linear-gradient(
+        90deg,
+        rgba(18, 53, 45, 0.8),
+        rgba(18, 53, 45, 0.25)
+    );
+
+    z-index: 1;
+
+}
+
+
+/* Hero Content */
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 650px;
+
+}
+
+
+.hero-label {
+
+    color: var(--accent);
+
+    font-family: var(--heading-font);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 15px;
+
+}
+
+
+/* Hero Heading */
+
+.hero h1 {
+
+    font-family: var(--heading-font);
+
+    font-size: 40px;
+
+    line-height: 1.4;
+
+    margin-bottom: 10px;
+
+}
+
+
+.hero-content > p:not(.hero-label) {
+
+    font-size: 17px;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* Hero Button */
+
+.hero-button {
+
+    display: inline-block;
+
+    padding: 12px 25px;
+
+    background-color: var(--secondary);
+
+    color: var(--white);
+
+    text-decoration: none;
+
+    border-radius: 6px;
+
+    transition: background-color 0.3s ease;
+
+}
+
+
+.hero-button:hover {
+
+    background-color: var(--primary);
+
+}
+
+
+/* =====================================
+   SERVICES SECTION
+===================================== */
+
+.services-section {
+
+    padding: 40px 5%;
+
+    background-color: var(--white);
+
+}
+
+
+.services-section h2,
+.about-content h2,
+.contact-section h2 {
+
+    font-family: var(--heading-font);
+
+    font-size: 26px;
+
+    color: var(--primary);
+
+}
+
+
+.section-description {
+
+    color: var(--muted);
+
+    margin-bottom: 25px;
+
+}
+
+
+/* Service Cards */
+
+.services-container {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 20px;
+
+}
+
+
+/* Individual Card */
+
+.service-card {
+
+    flex: 1 1 250px;
+
+    min-width: 0;
+
+    padding: 25px;
+
+    background-color: #f4f8f7;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+
+}
+
+
+/* Card Hover */
+
+.service-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow: 0 8px 20px rgba(23, 63, 67, 0.12);
+
+}
+
+
+/* Card Heading */
+
+.service-card h3 {
+
+    font-family: var(--heading-font);
+
+    font-size: 19px;
+
+    color: var(--primary);
+
+    margin-bottom: 10px;
+
+}
+
+
+/* Different Card Styles */
+
+.card-one {
+
+    border-radius: 12px;
+
+    background-color: #f1f7f5;
+
+}
+
+
+.card-two {
+
+    border: 3px solid var(--accent);
+
+    border-radius: 4px;
+
+}
+
+
+.card-three {
+
+    border: 2px solid #648b80;
+
+    border-radius: 0;
+
+}
+
+
+/* =====================================
+   ABOUT SECTION
+===================================== */
+
+.about-section {
+
+    padding: 35px 5%;
+
+    background-color: var(--white);
+
+}
+
+
+/* About Image */
+
+.about-image {
+
+    width: 100%;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    border: 1px solid var(--border);
+
+}
+
+
+.about-image img {
+
+    display: block;
+
+    width: 100%;
+
+    height: 280px;
+
+    object-fit: cover;
+
+    transition: transform 0.4s ease;
+
+}
+
+
+.about-image:hover img {
+
+    transform: scale(1.03);
+
+}
+
+
+/* About Content */
+
+.about-content {
+
+    padding: 25px 5px;
+
+}
+
+
+.about-content h2 {
+
+    margin-bottom: 12px;
+
+}
+
+
+.about-content p {
+
+    font-size: 16px;
+
+    margin-bottom: 15px;
+
+}
+
+
+/* =====================================
+   CONTACT SECTION
+===================================== */
+
+.contact-section {
+
+    padding: 40px 5%;
+
+    background-color: var(--white);
+
+}
+
+
+.contact-section > p {
+
+    color: var(--muted);
+
+    margin: 10px 0 20px;
+
+}
+
+
+/* Form */
+
+.contact-form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    max-width: 750px;
+
+}
+
+
+/* Labels */
+
+.contact-form label {
+
+    font-weight: 500;
+
+    color: var(--text);
+
+}
+
+
+/* Inputs */
+
+.contact-form input,
+.contact-form textarea {
+
+    width: 100%;
+
+    max-width: 100%;
+
+    padding: 12px;
+
+    font-family: var(--body-font);
+
+    font-size: 16px;
+
+    color: var(--text);
+
+    background-color: var(--white);
+
+    border: 1px solid #9fb4c3;
+
+    border-radius: 5px;
+
+}
+
+
+/* Focus */
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+
+    outline: 2px solid var(--secondary);
+
+    outline-offset: 2px;
+
+}
+
+
+/* Textarea */
+
+.contact-form textarea {
+
+    resize: vertical;
+
+}
+
+
+/* Button */
+
+.contact-form button {
+
+    width: fit-content;
+
+    min-width: 150px;
+
+    padding: 12px 20px;
+
+    background-color: var(--secondary);
+
+    color: var(--white);
+
+    font-family: var(--body-font);
+
+    font-size: 15px;
+
+    border: none;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s ease;
+
+}
+
+
+/* Button Hover */
+
+.contact-form button:hover {
+
+    background-color: var(--primary);
+
+}
+
+
+/* =====================================
+   FOOTER
+===================================== */
+
+.footer {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 20px;
+
+    padding: 25px 5%;
+
+    background-color: var(--primary);
+
+    color: var(--white);
+
+}
+
+
+.footer h3 {
+
+    font-family: var(--heading-font);
+
+    font-size: 18px;
+
+}
+
+
+/* Footer Links */
+
+.footer-links {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 20px;
+
+}
+
+
+.footer-links a {
+
+    color: var(--white);
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+}
+
+
+.footer-links a:hover {
+
+    color: var(--accent);
+
+}
+
+
+/* =====================================
+   TABLET BREAKPOINT
+   768px
+===================================== */
+
+@media screen and (max-width: 768px) {
+
+
+    /* Navbar */
+
+    .navbar {
+
+        padding: 18px 4%;
+
+        gap: 15px;
+
+    }
+
+
+    .logo {
+
+        font-size: 18px;
+
+    }
+
+
+    .nav-links {
+
+        gap: 15px;
+
+    }
+
+
+    /* Hero */
+
+    .hero {
+
+        min-height: 300px;
+
+        padding: 35px 4%;
+
+    }
+
+
+    .hero h1 {
+
+        font-size: 32px;
+
+    }
+
+
+    /* Services */
+
+    .services-section {
+
+        padding: 30px 4%;
+
+    }
+
+
+    .services-container {
+
+        gap: 15px;
+
+    }
+
+
+    .service-card {
+
+        flex: 1 1 200px;
+
+        padding: 20px;
+
+    }
+
+
+    /* About */
+
+    .about-section {
+
+        padding: 30px 4%;
+
+    }
+
+
+    .about-image img {
+
+        height: 230px;
+
+    }
+
+
+    /* Contact */
+
+    .contact-section {
+
+        padding: 30px 4%;
+
+    }
+
+
+    /* Footer */
+
+    .footer {
+
+        padding: 20px 4%;
+
+    }
+
+
+}
+
+
+/* =====================================
+   MOBILE BREAKPOINT
+   480px
+===================================== */
+
+@media screen and (max-width: 480px) {
+
+
+    /* Navbar */
+
+    .navbar {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 12px;
+
+        padding: 18px 20px;
+
+    }
+
+
+    .logo {
+
+        font-size: 19px;
+
+    }
+
+
+    /* Navigation */
+
+    .nav-links {
+
+        display: flex;
+
+        flex-direction: row;
+
+        flex-wrap: wrap;
+
+        justify-content: flex-start;
+
+        gap: 10px 18px;
+
+        width: 100%;
+
+    }
+
+
+    .nav-links a {
+
+        font-size: 14px;
+
+        padding: 3px 0;
+
+    }
+
+
+    /* Hero */
+
+    .hero {
+
+        min-height: 280px;
+
+        padding: 30px 20px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size: 27px;
+
+        line-height: 1.45;
+
+    }
+
+
+    .hero-label {
+
+        font-size: 11px;
+
+    }
+
+
+    .hero-content > p:not(.hero-label) {
+
+        font-size: 15px;
+
+    }
+
+
+    .hero-button {
+
+        padding: 12px 22px;
+
+    }
+
+
+    /* Services */
+
+    .services-section {
+
+        padding: 30px 20px;
+
+    }
+
+
+    .services-section h2,
+    .about-content h2,
+    .contact-section h2 {
+
+        font-size: 23px;
+
+    }
+
+
+    .services-container {
+
+        flex-direction: column;
+
+        gap: 15px;
+
+    }
+
+
+    .service-card {
+
+        width: 100%;
+
+        flex: 1 1 auto;
+
+        padding: 20px;
+
+    }
+
+
+    .service-card h3 {
+
+        font-size: 17px;
+
+    }
+
+
+    .service-card p {
+
+        font-size: 14px;
+
+    }
+
+
+    /* About */
+
+    .about-section {
+
+        padding: 25px 20px;
+
+    }
+
+
+    .about-image img {
+
+        width: 100%;
+
+        height: 200px;
+
+    }
+
+
+    .about-content {
+
+        padding: 20px 0;
+
+    }
+
+
+    .about-content p {
+
+        font-size: 14px;
+
+    }
+
+
+    /* Contact */
+
+    .contact-section {
+
+        padding: 30px 20px;
+
+    }
+
+
+    .contact-form {
+
+        gap: 10px;
+
+    }
+
+
+    .contact-form input,
+    .contact-form textarea {
+
+        font-size: 16px;
+
+        padding: 12px;
+
+    }
+
+
+    .contact-form button {
+
+        width: 100%;
+
+        padding: 13px;
+
+    }
+
+
+    /* Footer */
+
+    .footer {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+
+        padding: 25px 20px;
+
+    }
+
+
+    .footer-links {
+
+        gap: 15px;
+
+    }
+
+
+    .footer-links a {
+
+        font-size: 13px;
+
+    }
+
+
+    .footer p {
+
+        font-size: 12px;
+
+    }
+
+
+}
+
+
+/* =====================================
+   EXTRA SMALL MOBILE
+   350px
+===================================== */
+
+@media screen and (max-width: 350px) {
+
+
+    .hero h1 {
+
+        font-size: 23px;
+
+    }
+
+
+    .hero {
+
+        padding: 25px 15px;
+
+    }
+
+
+    .services-section,
+    .about-section,
+    .contact-section {
+
+        padding-left: 15px;
+
+        padding-right: 15px;
+
+    }
+
+
+    .nav-links {
+
+        gap: 8px 12px;
+
+    }
+
+
+    .nav-links a {
+
+        font-size: 12px;
+
+    }
+
+
+    .service-card {
+
+        padding: 15px;
+
+    }
+
+
+}
